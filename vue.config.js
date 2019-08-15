@@ -5,7 +5,7 @@ const resolve = dir => path.join(__dirname, dir)
 
 module.exports = {
   // 基本路径
-  publicPath: './',
+  publicPath: '/',
 
   // 输出文件目录
   // outputDir: 'dist',
@@ -27,7 +27,7 @@ module.exports = {
       title: 'vue-admin'
       // 在这个页面中包含的块，默认情况下会包含
       // 提取出来的通用 chunk 和 vendor chunk。
-      //   chunks: ['chunk-vendors', 'chunk-common', 'index']
+      // chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
     // 当使用只有入口的字符串格式时，
     // 模板会被推导为 `public/subpage.html`
@@ -43,18 +43,16 @@ module.exports = {
     // 开启 CSS source maps?
     sourceMap: false,
     // css预设器配置项
-    loaderOptions: {
-    },
+    loaderOptions: {},
     // 启用 CSS modules for all css / pre-processor files.
     modules: false
   },
 
-  pluginOptions: {
-  },
+  pluginOptions: {},
 
   devServer: {
     // 端口
-    port: 8080,
+    port: 8000,
 
     // 配置代理
     proxy: {

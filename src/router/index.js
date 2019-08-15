@@ -4,30 +4,53 @@ import Layout from '@/layout'
 
 Vue.use(Router)
 
+export const constantRoutes = [
+  {
+    path: '/',
+    redirect: '/home',
+    component: Layout,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        meta: { title: 'home', icon: 's-home', affix: true },
+        component: () => import('@/views/home/index')
+      }
+    ]
+  }
+]
+export const asyncRoutes = [
+  {
+    path: '/basic',
+    component: Layout,
+    redirect: '/basic/layout',
+    meta: { title: 'basic', icon: 'menu' },
+    children: [
+      {
+        path: 'layout',
+        name: 'layout',
+        component: () => import('@/views/basic/layout'),
+        meta: {
+          title: 'layout',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'button',
+        name: 'button',
+        component: () => import('@/views/basic/button'),
+        meta: {
+          title: 'button',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
+  { path: '*', redirect: '/404', hidden: true }
+]
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'layout',
-      component: Layout,
-      children: [
-        {
-          path: '/home',
-          name: 'home',
-          component: () => import('@/views/home/index')
-        }
-      ]
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ '@/views/About.vue')
-    }
-  ]
+  routes: [...constantRoutes, ...asyncRoutes]
 })
