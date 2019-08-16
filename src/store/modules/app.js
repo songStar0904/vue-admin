@@ -1,3 +1,4 @@
+import variables from '@/styles/element-variables.scss'
 const state = {
   sidebar: localStorage.getItem('sidebar')
     ? JSON.parse(localStorage.getItem('sidebar'))
@@ -9,7 +10,7 @@ const state = {
   size: 'medium',
   theme: localStorage.getItem('theme')
     ? localStorage.getItem('theme')
-    : '#409EFF'
+    : variables.theme
 }
 
 const mutations = {

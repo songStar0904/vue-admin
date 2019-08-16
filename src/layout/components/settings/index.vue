@@ -9,12 +9,28 @@
                :visible.sync="drawer"
                direction="rtl"
                custom-class="drawer">
-      <theme-picker />
-      <div class="drawer-item">
-        <span>Open Tags-View</span>
-        <el-switch v-model="tagsView"
-                   class="drawer-switch" />
-      </div>
+
+      <el-row type="flex"
+              class="row-item"
+              justify="space-around">
+        <el-col :span="12">
+          <div class="">主题颜色</div>
+        </el-col>
+        <el-col :span="12">
+          <theme-picker />
+        </el-col>
+      </el-row>
+      <el-row type="flex"
+              class="row-item"
+              justify="space-around">
+        <el-col :span="12">
+          <div class="">开启 Tags-View</div>
+        </el-col>
+        <el-col :span="12">
+          <el-switch v-model="tagsView"
+                     class="drawer-switch" />
+        </el-col>
+      </el-row>
     </el-drawer>
   </div>
 </template>
@@ -27,7 +43,7 @@ export default {
   },
   data () {
     return {
-      drawer: true,
+      drawer: false,
       tagsView: true
     }
   },
@@ -36,7 +52,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .setting-btn {
   width: 48px;
   height: 48px;
@@ -50,5 +66,10 @@ export default {
   cursor: pointer;
   color: #fff;
   line-height: 48px;
+}
+.row-item {
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
 }
 </style>

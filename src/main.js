@@ -6,7 +6,7 @@ import '@/styles/index.scss' // global css
 import './permission' // permission control
 
 import elementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './styles/element-variables.scss'
 Vue.use(elementUI)
 Vue.config.productionTip = false
 new Vue({
