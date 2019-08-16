@@ -4,18 +4,20 @@
     <div class="main-container">
       <nav-bar></nav-bar>
       <app-main />
+      <settings />
     </div>
   </div>
 </template>
 <script>
-import { appMain, sideBar, navBar } from './components'
+import { appMain, sideBar, navBar, settings } from './components'
 import { mapState } from 'vuex'
 export default {
   name: 'layout',
   components: {
     appMain,
     sideBar,
-    navBar
+    navBar,
+    settings
   },
   computed: {
     ...mapState({

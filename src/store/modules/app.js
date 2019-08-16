@@ -6,7 +6,10 @@ const state = {
       withoutAnimation: false
     },
   device: 'desktop',
-  size: 'medium'
+  size: 'medium',
+  theme: localStorage.getItem('theme')
+    ? localStorage.getItem('theme')
+    : '#409EFF'
 }
 
 const mutations = {
@@ -24,6 +27,10 @@ const mutations = {
   },
   SET_SIZE: (state, size) => {
     state.size = size
+  },
+  SET_THEME: (state, theme) => {
+    localStorage.setItem('theme', theme)
+    state.theme = theme
   }
 }
 

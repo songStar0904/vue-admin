@@ -1,6 +1,6 @@
 <template>
   <div>
-    Botton
+    <el-button type="primary">默认按钮</el-button>
   </div>
 </template>
 <script>

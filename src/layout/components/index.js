@@ -1,5 +1,5 @@
 export { default as appMain } from './appMain'
 export { default as navBar } from './navBar'
-// export { default as Settings } from './Settings'
+export { default as settings } from './settings'
 export { default as sideBar } from './sideBar/index.vue'
 // export { default as TagsView } from './TagsView/index.vue'
