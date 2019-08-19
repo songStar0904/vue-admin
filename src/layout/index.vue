@@ -3,13 +3,14 @@
     <side-bar class="sidebar-container" />
     <div class="main-container">
       <nav-bar></nav-bar>
+      <tags-view class="tags-container" />
       <app-main />
       <settings />
     </div>
   </div>
 </template>
 <script>
-import { appMain, sideBar, navBar, settings } from './components'
+import { appMain, sideBar, navBar, settings, tagsView } from './components'
 import { mapState } from 'vuex'
 export default {
   name: 'layout',
@@ -17,7 +18,8 @@ export default {
     appMain,
     sideBar,
     navBar,
-    settings
+    settings,
+    tagsView
   },
   computed: {
     ...mapState({
