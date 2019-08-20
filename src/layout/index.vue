@@ -3,7 +3,10 @@
     <side-bar class="sidebar-container" />
     <div class="main-container">
       <nav-bar></nav-bar>
-      <tags-view class="tags-container" />
+      <transition name="el-fade-in">
+        <tags-view class="tags-container"
+                   v-show="tagsView" />
+      </transition>
       <app-main />
       <settings />
     </div>
@@ -11,7 +14,7 @@
 </template>
 <script>
 import { appMain, sideBar, navBar, settings, tagsView } from './components'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'layout',
   components: {
@@ -22,9 +25,7 @@ export default {
     tagsView
   },
   computed: {
-    ...mapState({
-      sidebar: state => state.app.sidebar
-    }),
+    ...mapGetters(['sidebar', 'tagsView']),
     classObj () {
       return {
         hideSidebar: !this.sidebar.opened

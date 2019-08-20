@@ -12,7 +12,6 @@ const mutations = {
     )
   },
   DEL_VISITED_VIEWS (state, index) {
-    console.log(index)
     state.visitedViews.splice(index, 1)
   }
 }

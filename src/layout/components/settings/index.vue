@@ -27,7 +27,8 @@
           <div class="">开启 Tags-View</div>
         </el-col>
         <el-col :span="12">
-          <el-switch v-model="tagsView"
+          <el-switch :value="tagsView"
+                     @change="handleTagsView"
                      class="drawer-switch" />
         </el-col>
       </el-row>
@@ -36,19 +37,24 @@
 </template>
 <script>
 import themePicker from './themePicker'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   components: {
     themePicker
   },
   data () {
     return {
-      drawer: false,
-      tagsView: true
+      drawer: false
     }
   },
   computed: {
-    ...mapGetters(['theme'])
+    ...mapGetters(['theme', 'tagsView'])
+  },
+  methods: {
+    ...mapMutations(['app/TOGGLE_TAGSVIEW']),
+    handleTagsView () {
+      this['app/TOGGLE_TAGSVIEW']()
+    }
   }
 }
 </script>
