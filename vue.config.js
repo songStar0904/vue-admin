@@ -18,8 +18,8 @@ module.exports = {
 
     // 配置代理
     proxy: {
-      '^/api': {
-        target: 'http://localhost:8081',
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'https://www.apiopen.top',
         ws: true,
         changeOrigin: true
       }

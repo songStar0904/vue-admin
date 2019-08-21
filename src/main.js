@@ -5,8 +5,11 @@ import store from '@/store/index'
 import '@/styles/index.scss' // global css
 import './permission' // permission control
 
+import api from './api'
+
 import elementUI from 'element-ui'
 import './styles/element-variables.scss'
+Vue.use(api)
 Vue.use(elementUI)
 Vue.config.productionTip = false
 new Vue({

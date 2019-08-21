@@ -46,6 +46,22 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/request',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'request',
+        component: () => import('@/views/request/index'),
+        meta: {
+          title: 'request',
+          icon: 's-promotion',
+          noCache: true
+        }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
