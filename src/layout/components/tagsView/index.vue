@@ -1,6 +1,6 @@
 <template>
   <div>
-    <scroll-pane ref="scrollPane">
+    <scroll-pane ref="ScrollPane">
       <el-tag v-for="(view, index) in visitedViews"
               :key="view.name"
               :name="view.name"
@@ -17,10 +17,10 @@
 </template>
 <script>
 import { mapMutations, mapGetters } from 'vuex'
-import scrollPane from './ScrollPane'
+import ScrollPane from './ScrollPane'
 export default {
   components: {
-    scrollPane
+    ScrollPane
   },
   computed: {
     ...mapGetters([
@@ -98,7 +98,7 @@ export default {
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.$attrs.name === this.$route.name) {
-            this.$refs.scrollPane.moveToTarget(tag)
+            this.$refs.ScrollPane.moveToTarget(tag)
             // when query is different then update
             // if (tag.to.fullPath !== this.$route.fullPath) {
             //   this.$store.dispatch('tagsView/updateVisitedView', this.$route)

@@ -3,10 +3,10 @@
           class="navbar"
           justify="space-between">
     <el-row type="flex">
-      <hamburger class="nav-btn"
+      <Hamburger class="nav-btn"
                  :is-active="sidebar.opened"
                  @toggleClick="toggleSideBar" />
-      <breadcrumb />
+      <Breadcrumb />
     </el-row>
     <el-row type="flex">
       <el-tooltip class="item"
@@ -19,16 +19,16 @@
   </el-row>
 </template>
 <script>
-import hamburger from './hamburger'
-import breadcrumb from './breadcrumb'
-import screenFull from './screenFull'
+import Hamburger from './Hamburger'
+import Breadcrumb from './Breadcrumb'
+import ScreenFull from './ScreenFull'
 import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'navBar',
   components: {
-    hamburger,
-    breadcrumb,
-    screenFull
+    Hamburger,
+    Breadcrumb,
+    ScreenFull
   },
   computed: {
     ...mapGetters([

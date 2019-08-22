@@ -21,11 +21,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import sidebarItem from './sidebarItem'
+import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
 export default {
-  components: { sidebarItem },
+  components: { SidebarItem },
   computed: {
     ...mapGetters([
       'permission_routes',
@@ -34,7 +34,6 @@ export default {
     activeMenu () {
       const route = this.$route
       const { meta, path } = route
-      // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
         return meta.activeMenu
       }

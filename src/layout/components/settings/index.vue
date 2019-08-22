@@ -24,7 +24,7 @@
               class="row-item"
               justify="space-around">
         <el-col :span="12">
-          <div class="">开启 Tags-View</div>
+          <div class="">开启标签导航栏</div>
         </el-col>
         <el-col :span="12">
           <el-switch :value="tagsView"
@@ -36,11 +36,11 @@
   </div>
 </template>
 <script>
-import themePicker from './themePicker'
+import ThemePicker from './ThemePicker'
 import { mapGetters, mapMutations } from 'vuex'
 export default {
   components: {
-    themePicker
+    ThemePicker
   },
   data () {
     return {

@@ -8,21 +8,21 @@
                    v-show="tagsView" />
       </transition>
       <app-main />
-      <settings />
+      <Settings />
     </div>
   </div>
 </template>
 <script>
-import { appMain, sideBar, navBar, settings, tagsView } from './components'
+import { AppMain, SideBar, NavBar, Settings, TagsView } from './components'
 import { mapGetters } from 'vuex'
 export default {
   name: 'layout',
   components: {
-    appMain,
-    sideBar,
-    navBar,
-    settings,
-    tagsView
+    AppMain,
+    SideBar,
+    NavBar,
+    Settings,
+    TagsView
   },
   computed: {
     ...mapGetters(['sidebar', 'tagsView']),
