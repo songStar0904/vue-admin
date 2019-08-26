@@ -1,11 +1,17 @@
 <template>
   <section class="app-main">
-    <transition name="fade-transform"
-                mode="out-in">
-      <keep-alive :include="cachedViews">
-        <router-view :key="key" />
-      </keep-alive>
-    </transition>
+    <el-card shadow="never">
+      <div slot="header"
+           v-if="title">
+        <span>{{title}}</span>
+      </div>
+      <transition name="fade-transform"
+                  mode="out-in">
+        <keep-alive :include="cachedViews">
+          <router-view :key="key" />
+        </keep-alive>
+      </transition>
+    </el-card>
   </section>
 </template>
 
@@ -18,6 +24,9 @@ export default {
     },
     key () {
       return this.$route.path
+    },
+    title () {
+      return this.$route.meta && this.$route.meta.title
     }
   }
 }

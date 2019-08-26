@@ -15,6 +15,7 @@
                   placement="bottom">
         <screen-full class="nav-btn" />
       </el-tooltip>
+      <Avatar class="nav-btn" />
     </el-row>
   </el-row>
 </template>
@@ -22,13 +23,15 @@
 import Hamburger from './Hamburger'
 import Breadcrumb from './Breadcrumb'
 import ScreenFull from './ScreenFull'
+import Avatar from './Avatar'
 import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'navBar',
   components: {
     Hamburger,
     Breadcrumb,
-    ScreenFull
+    ScreenFull,
+    Avatar
   },
   computed: {
     ...mapGetters([
