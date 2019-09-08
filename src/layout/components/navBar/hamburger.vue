@@ -1,6 +1,5 @@
 <template>
-  <div class="hamburger"
-       @click="toggleClick">
+  <div @click="toggleClick">
     <i :class="isActive ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
   </div>
 </template>
@@ -19,17 +18,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.hamburger {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 24px;
-  &:hover {
-    background: rgba(0, 0, 0, 0.025);
-  }
-}
-</style>

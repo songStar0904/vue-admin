@@ -2,14 +2,12 @@
 // 自定义vue配置
 const path = require('path')
 const resolve = dir => path.join(__dirname, dir)
-
 module.exports = {
   // 基本路径
-  publicPath: '/',
-
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   // 输出文件目录
-  // outputDir: 'dist',
-
+  outputDir: 'dist',
+  assetsDir: 'static',
   // eslint-loader 是否在保存的时候检查
   // lintOnSave: true,
 
@@ -56,8 +54,8 @@ module.exports = {
 
     // 配置代理
     proxy: {
-      '^/api': {
-        target: 'http://localhost:8081',
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'https://www.apiopen.top',
         ws: true,
         changeOrigin: true
       }

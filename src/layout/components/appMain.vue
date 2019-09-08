@@ -1,11 +1,17 @@
 <template>
   <section class="app-main">
-    <transition name="fade-transform"
-                mode="out-in">
-      <keep-alive>
-        <router-view :key="key" />
-      </keep-alive>
-    </transition>
+    <el-card shadow="never">
+      <div slot="header"
+           v-if="title">
+        <span>{{title}}</span>
+      </div>
+      <transition name="fade-transform"
+                  mode="out-in">
+        <keep-alive :include="cachedViews">
+          <router-view :key="key" />
+        </keep-alive>
+      </transition>
+    </el-card>
   </section>
 </template>
 
@@ -14,11 +20,13 @@ export default {
   name: 'appMain',
   computed: {
     cachedViews () {
-      return 1
-      // return this.$store.state.tagsView.cachedViews
+      return this.$store.getters.cachedViews
     },
     key () {
       return this.$route.path
+    },
+    title () {
+      return this.$route.meta && this.$route.meta.title
     }
   }
 }
@@ -26,9 +34,9 @@ export default {
 
 <style lang="scss" scoped>
 .app-main {
-  /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
+  /* 50= navbar 52 = tagsView 50 + 52 */
+  // min-height: calc(100vh - 102px);
+  padding: 10px;
   position: relative;
   overflow: hidden;
 }

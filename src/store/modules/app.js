@@ -10,7 +10,11 @@ const state = {
   size: 'medium',
   theme: localStorage.getItem('theme')
     ? localStorage.getItem('theme')
-    : variables.theme
+    : variables.theme,
+  tagsView:
+    typeof JSON.parse(localStorage.getItem('tagsView')) === 'boolean'
+      ? JSON.parse(localStorage.getItem('tagsView'))
+      : true
 }
 
 const mutations = {
@@ -22,6 +26,10 @@ const mutations = {
   CLOSE_SIDEBAR: (state, withoutAnimation) => {
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
+  },
+  TOGGLE_TAGSVIEW: state => {
+    state.tagsView = !state.tagsView
+    localStorage.setItem('tagsView', state.tagsView)
   },
   TOGGLE_DEVICE: (state, device) => {
     state.device = device

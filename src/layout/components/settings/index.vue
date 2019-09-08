@@ -24,10 +24,11 @@
               class="row-item"
               justify="space-around">
         <el-col :span="12">
-          <div class="">开启 Tags-View</div>
+          <div class="">开启标签导航栏</div>
         </el-col>
         <el-col :span="12">
-          <el-switch v-model="tagsView"
+          <el-switch :value="tagsView"
+                     @change="handleTagsView"
                      class="drawer-switch" />
         </el-col>
       </el-row>
@@ -35,20 +36,25 @@
   </div>
 </template>
 <script>
-import themePicker from './themePicker'
-import { mapGetters } from 'vuex'
+import ThemePicker from './ThemePicker'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   components: {
-    themePicker
+    ThemePicker
   },
   data () {
     return {
-      drawer: false,
-      tagsView: true
+      drawer: false
     }
   },
   computed: {
-    ...mapGetters(['theme'])
+    ...mapGetters(['theme', 'tagsView'])
+  },
+  methods: {
+    ...mapMutations(['app/TOGGLE_TAGSVIEW']),
+    handleTagsView () {
+      this['app/TOGGLE_TAGSVIEW']()
+    }
   }
 }
 </script>

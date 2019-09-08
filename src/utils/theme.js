@@ -33,6 +33,9 @@ function getCSSString (url) {
         resolve()
       }
     }
+    xhr.onerror = e => {
+      console.log(e)
+    }
     xhr.open('GET', url)
     xhr.send()
   })

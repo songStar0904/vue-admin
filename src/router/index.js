@@ -13,7 +13,7 @@ export const constantRoutes = [
       {
         path: 'home',
         name: 'home',
-        meta: { title: 'home', icon: 's-home', affix: true },
+        meta: { title: 'home', icon: 's-home', affix: true, noCache: true },
         component: () => import('@/views/home/index')
       }
     ]
@@ -65,7 +65,7 @@ export const asyncRoutes = [
 ]
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [...constantRoutes, ...asyncRoutes]
 })
